@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Sacramento&display=swap');
 :root{
     --clr-text:#3d3d3d;
     --clr-primary:#067E0A;
-    --clr-accent:#764981;
+    --clr-primary-dark:#125814;
+    --clr-accent:#613b6b;
+    --clr-accent-dark:#44264d;
 }
 
 *,
@@ -13,16 +16,20 @@
 html{
     box-sizing: border-box;
    color: var(--clr-text);
+   
    font-size: 1.125rem;
 }
 body{
     margin: 0;
+    text-align: center;
 }
 h1,h2,h3,p{
     margin: 0;
 }
 h2,h3{
-    line-height: 0.8;
+    font-family: 'Amatic SC', cursive;
+    text-transform: uppercase;
+    line-height:1;
     letter-spacing: 2px;
 }
 
@@ -38,6 +45,7 @@ p:last-child{
 img{
     display: block;
     max-width: 1000%;
+    margin: auto;
 }
 section{
     padding: 3em 1em;
@@ -66,21 +74,30 @@ section{
     border-radius: 0.25em;
     
 }
-.btn + .btn{
+/* .btn + .btn{
     margin-left: 0.5em;
-}
+} */
 
 .btn-primary{
     background:var(--clr-primary) ;
 }
+.btn-primary:hover{
+    background:var(--clr-primary-dark) ;
+}
 .btn-accent{
     background:var(--clr-accent) ;
+}
+.btn-accent:hover{
+    background:var(--clr-accent-dark) ;
 }
 /* nav style */
 nav{
     padding: 1em 0 2em;
 }
-header ul{
+header{
+    padding: 1em 0 2em;
+}
+nav ul{
     display: flex;
     list-style:none;
     margin: 0;
@@ -101,6 +118,7 @@ nav a:focus{
 }
 .logo{
     text-align: center;
+
 }
 .text-primary{
     color: var(--clr-primary);
@@ -109,30 +127,42 @@ nav a:focus{
 }
 .logo a{
     text-decoration: none;
+    font-family: 'Sacramento', cursiv;
+    font-style: oblique;
+    font-weight: bolder;
+    color: black;
+
 }
 .hero{
-    background-color: #333;
+    background-color: rgb(95, 95, 95);
+    background-image: url(../images/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     background-blend-mode: multiply;
     color: white;
     text-align: center;
-    padding: 15vh 0;
+    padding: 15vh 1em;
 }
 /* nav style end*/
 
 /* intro style */
-.intro{
-    text-align: center;
-}
+
 /* intro style end */
 /* about us style */
 .about-us{
     background: var(--clr-accent);
     display: flex;
     flex-direction: column;
+    padding: 0;
+    color: white;
 }
 .about-us__intro{
-    /* background-image:url(../images/pro3.jpg) ; */
-    background: white;
+    background-color: var(--clr-accent);
+    background-image:url(../images/granola.jpg) ;
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 3em 1em 1.5em;
 }
 
@@ -142,9 +172,9 @@ nav a:focus{
 }
 /* about us style end*/
 /* order online styling */
-/* .order-online{
+.order-online{
     background: #f0f0f0;
-} */
+}
 /* order online styling end*/
 /* product style */
 .products{
@@ -152,11 +182,12 @@ nav a:focus{
     flex-direction: column;
     text-align: center;
     max-width: 30rem;
+ 
     margin: 0 auto;
 }
 .product{
-    /* background: #423131; */
-    /* padding: 1em; */
+    /* background: #e6e6e6; */
+    padding: 1em;
     border-radius: 1em;
     /* border: 1px solid red; */
     overflow: hidden;
@@ -174,21 +205,32 @@ nav a:focus{
     font-size: 0.75rem;
     color: rgba(0,0,0,0.85);
 }
+.mb{
+    margin-bottom: 0;
+    color: black;
+}
+.product:last-of-type{
+    margin-bottom:2em ;
+}
 /* product style end*/
 
 /* footer style */
 footer{
     display: flex;
-    background: #333;
+    background: var(--clr-accent-dark);
     padding: 3em 1em;
     color: white;
     justify-content: center;
+    margin-bottom: 0;
+    gap: 5em;
+    align-items: center;
 }
 footer a{
     color: inherit;
 }
 .footer-nav,
 .footer-social{
+   
     list-style: none;
     padding: 0;
     margin: 0;
@@ -196,14 +238,17 @@ footer a{
 .footer-nav a{
     padding: 0.75em;
     text-decoration: none;
+   
 }
-
+.footer-nav a:hover{
+    text-decoration: underline;
+}
 .social-icon{
     width: 50px;
 }
 .social-link{
     display: inline-block;
-    margin: 5px;
+    margin-bottom: 5px;
 }
 
 /* footer style end */
@@ -215,6 +260,7 @@ footer a{
         padding: 6em 1em;
     }
     .btn-group{
+        margin-top: 1em;
         flex-direction: row;
     }
     .btn + .btn{
@@ -226,11 +272,15 @@ footer a{
     .about-us__intro,
     .about-us_body{
         flex: 0 1 50%;
+        display: flex;
         flex-direction: column;
         justify-content: center;
         padding: 4em 1em;
+       
     }
+  
     .about-us__intro{
+
         text-align: right;
         display: flex;
     }
@@ -238,16 +288,32 @@ footer a{
         max-width: 27rem;
         margin-left: auto;
     }
-    .about-us__body{
+    .about-us_body{
         text-align: left;
        
     }
-    .about-us__intro>*{
+    .about-us_body>*{
         max-width: 27rem;
         margin-right: auto;
     }
     .order-online > *{
-        max-width: 50ch;
-        margin: 0 auto;
+        max-width: 70ch;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .products{
+        flex-direction: row;
+        max-width: 90%;
+        padding:0 5em ; 
+    }
+    .product{
+        margin: 0;
+        flex: 0 1 33%;
+    }
+    .product + .product{
+        margin-left: 1em;
+    }
+    .product:last-of-type{
+        margin-bottom:0 ;
     }
 }
